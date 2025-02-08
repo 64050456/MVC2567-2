@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Product</title>
+</head>
+<body>
+  <h1>เพิ่มสินค้าใหม่</h1>
+
+  <% if (errorMsg) { %>
+    <p style="color: red;"><%= errorMsg %></p>
+  <% } %>
+  
+  <form action="/add" method="POST">
+    <div>
+      <label>รหัสสินค้า (6 หลัก ไม่ขึ้นต้นด้วย 0):</label>
+      <input 
+        type="text" 
+        name="code" 
+        required 
+        value="<%= oldData ? oldData.code : '' %>" 
+      />
+    </div>
+    
+    <div>
+      <label>ประเภทสินค้า:</label>
+      <select name="type">
+        <option value="food" 
+          <%= oldData && oldData.type === 'food' ? 'selected' : '' %>>
+          อาหาร
+        </option>
+        <option value="electronics" 
+          <%= oldData && oldData.type === 'electronics' ? 'selected' : '' %>>
+          อิเล็กทรอนิกส์
+        </option>
+        <option value="clothes" 
+          <%= oldData && oldData.type === 'clothes' ? 'selected' : '' %>>
+          เสื้อผ้า
+        </option>
+      </select>
+    </div>
+
+    <div>
+      <label>วันหมดอายุ (กรณีเป็นสินค้าอาหาร):</label>
+      <input 
+        type="date" 
+        name="expiryDate" 
+        value="<%= oldData ? oldData.expiryDate : '' %>"
+      />
+    </div>
+    
+    <div>
+      <label>สถานะสินค้า:</label>
+      <select name="status">
+        <option value="ปกติ" 
+          <%= oldData && oldData.status === 'ปกติ' ? 'selected' : '' %>>
+          ปกติ
+        </option>
+        <option value="เสียหาย" 
+          <%= oldData && oldData.status === 'เสียหาย' ? 'selected' : '' %>>
+          เสียหาย
+        </option>
+        <option value="ต้องตรวจสอบเพิ่มเติม" 
+          <%= oldData && oldData.status === 'ต้องตรวจสอบเพิ่มเติม' ? 'selected' : '' %>>
+          ต้องตรวจสอบเพิ่มเติม
+        </option>
+      </select>
+    </div>
+    
+    <button type="submit">บันทึก</button>
+  </form>
+  
+  <br>
+  <a href="/">กลับหน้ารายการสินค้า</a>
+</body>
+</html>

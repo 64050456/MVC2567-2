@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product List</title>
+</head>
+<body>
+  <h1>รายการสินค้า</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>รหัสสินค้า</th>
+        <th>ประเภท</th>
+        <th>วันหมดอายุ</th>
+        <th>สถานะ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.forEach(product => { %>
+        <tr>
+          <td><%= product.code %></td>
+          <td><%= product.type %></td>
+          <td><%= product.expiryDate ? product.expiryDate : '-' %></td>
+          <td><%= product.status %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <h2>สรุปจำนวนสินค้าแยกตามประเภท</h2>
+  <ul>
+    <% for(let t in summaryByType) { %>
+      <li><%= t %>: <%= summaryByType[t] %> ชิ้น</li>
+    <% } %>
+  </ul>
+
+  <a href="/add">เพิ่มสินค้าใหม่</a>
+</body>
+</html>

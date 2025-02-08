@@ -1,0 +1,26 @@
+[
+  {
+    "code": "123456",
+    "type": "food",
+    "expiryDate": "2025-03-29",
+    "status": "ปกติ"
+  },
+  {
+    "code": "222222",
+    "type": "clothes",
+    "expiryDate": null,
+    "status": "ต้องตรวจสอบเพิ่มเติม"
+  },
+  {
+    "code": "333333",
+    "type": "electronics",
+    "expiryDate": null,
+    "status": "ปกติ"
+  },
+  {
+    "code": "444444",
+    "type": "food",
+    "expiryDate": "2025-04-26",
+    "status": "ปกติ"
+  }
+]
